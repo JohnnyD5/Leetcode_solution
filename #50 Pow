@@ -1,0 +1,18 @@
+Typical recursion question, give mypow to half, it runs faster than
+        if n%2 == 0:
+            return self.myPow(x,n//2)*self.myPow(x,n//2)
+        else:
+            return self.myPow(x,n//2)*x*self.myPow(x,n//2)
+Because with half, pow only calculate n times, but without half, it calculate n^2 times
+
+class Solution:
+    def myPow(self, x, n):
+        if n == 0:
+            return 1
+        if n < 0 :
+            return 1.0/self.myPow(x,-n)
+        half = self.myPow(x,n//2)
+        if n%2 == 0:
+            return half*half
+        else:
+            return half*x*half
