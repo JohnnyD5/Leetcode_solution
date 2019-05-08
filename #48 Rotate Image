@@ -1,0 +1,31 @@
+You are given an n x n 2D matrix representing an image.
+
+Rotate the image by 90 degrees (clockwise).
+
+A general idea to rotate a matrix is first rotate symmetry, then reverse left and right
+or first reverse upside down then rotate symmetry.
+
+A notable use of Pyhton method here is list.reverse().
+
+a = [1,2,3,4]
+a.reverse() 
+outcome:
+a = [4,3,2,1]
+
+Python Code:
+class Solution:
+    def rotate(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: void Do not return anything, modify matrix in-place instead.
+        """
+        # to rotate a matrix, reverse upside down, then rotate symmetry
+        # 1 reverse upside down
+        n = len(matrix)
+        for i in range(n//2):
+            for j in range(n):
+                matrix[i][j], matrix[n-1-i][j] = matrix[n-1-i][j], matrix[i][j]
+        # 2 rotate symmetry
+        for i in range(n):
+            for j in range(i+1,n):
+                matrix[i][j],matrix[j][i] = matrix[j][i],matrix[i][j]
