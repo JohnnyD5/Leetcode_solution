@@ -1,3 +1,4 @@
+"""
 The gas list is a cyclic list. 
 In order for traveling a loop, there should be more gas than traveling cost.
 Obviously, sum(x,y) = gas(x)- cost(x) + gas(x+1) - cost(x+1) + ....gas(y)-cost(y) >= 0
@@ -6,9 +7,9 @@ Obviously, in this list, there must exist a sublist (k,y) that sum(k,y) >= 0, th
 there is one more condition:
 sum(k,k) >=0 and all sum(k,j)>=0 for j in between k and y
 so just watch out for sum(k,i)<0 then reset k to be i+1
+"""
 
 
-```css
 class Solution():
     def canCompleteCircuit(self, gas, cost):
         """
@@ -27,4 +28,4 @@ class Solution():
                 balance = 0
                 index = i+1
         return index
-```
+
