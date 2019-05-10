@@ -1,0 +1,15 @@
+This is not a dfs problem, but a math problem.
+If use dfs solution, it will result in LTE
+
+import math
+class Solution():
+    def getPermutation(self, n, k):
+        res = ''
+        pos = k-1
+        nums = list(range(1,n+1))
+        while n > 0:
+            index, pos = divmod(pos, math.factorial(n)//n)
+            res += str(nums[index])
+            nums.remove(nums[index])
+            n -= 1
+        return res
