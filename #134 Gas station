@@ -8,7 +8,8 @@ sum(k,k) >=0 and all sum(k,j)>=0 for j in between k and y
 so just watch out for sum(k,i)<0 then reset k to be i+1
 
 
-
+```css
+   // code for coloring
 class Solution():
     def canCompleteCircuit(self, gas, cost):
         """
